@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
-
+from django.shortcuts import render
 # Create your views here.
 author = {
     "Имя": "Александр",
@@ -21,11 +21,15 @@ items = [
 
 
 def home(request):
-    text = """<h1>"Изучаем django"</h1>
-              <strong>Автор</strong>: <i>Шиховцов В.В.</i>
-           """
-    return HttpResponse(text)
-
+    # text = """<h1>"Изучаем django"</h1>
+    #           <strong>Автор</strong>: <i>Шиховцов В.В.</i>
+    #        """
+    # return HttpResponse(text)
+    context = {
+        "name": "Петров Иван Николаевич",
+        "email": "my_mail@example.com"
+    }
+    return render(request, "index.html", context)
 
 def about(request):
     result = f"""
