@@ -3,11 +3,11 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 # Create your views here.
 author = {
-    "Имя": "Иван",
-    "Отчество": "Петрович",
-    "Фамилия": "Иванов",
-    "телефон": "8-923-600-01-02",
-    "email": "vasya@mail.ru"
+    "Имя": "Александр",
+    "Отчество": "Андреевич",
+    "Фамилия": "Отцовский",
+    "телефон": "8-000-000-00-00",
+    "email": "coresh@mail.ru"
 
 }
 
@@ -48,6 +48,7 @@ def get_item(request, id):
             result = f"""
             <h2>Имя: {item["name"]} </h2>
             <p>Количество: {item["quantity"]} </p>
+            <p><a href="/items"> Назад к списку товаров </a></p>
             """
             return HttpResponse(result)
     return HttpResponseNotFound(f'Item with id={id} not found')
