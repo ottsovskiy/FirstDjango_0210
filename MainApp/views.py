@@ -20,15 +20,15 @@ items = [
 ]
 
 
-def home(request):
+def index(request):
     # text = """<h1>"Изучаем django"</h1>
-    #           <strong>Автор</strong>: <i>Шиховцов В.В.</i>
+    #           <strong>Автор</strong>: <i>Отцовский А.А.</i>
     #        """
     # return HttpResponse(text)
     context = {
-        "name": "Петров Иван Николаевич",
-        "email": "my_mail@example.com"
-    }
+        "name": "Отцовский А.А.",
+        "email": "my_mail@example.com",
+            }
     return render(request, "index.html", context)
 
 def about(request):
@@ -70,3 +70,15 @@ def items_list(request):
         result += f"""<li><a href="/item/{item['id']}">{item['name']}</a></li>"""
     result += '</ol>'
     return HttpResponse(result)
+
+def countrie_list(request):
+    return render(request, "countries.html")
+
+def Australia(request):
+    return render(request, "Australia.html")
+
+def Austria(request):
+    return render(request, "Austria.html")
+
+def Bahamas(request):
+    return render(request, "Bahamas.html")
